@@ -1,6 +1,6 @@
 # code.wroclaw.pl
 
-> Vue.js + Bulma ver.
+> Vue.js + Bulma version
 
 ## Build Setup
 
