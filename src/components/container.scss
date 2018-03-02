@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald');
+$main-color: #008000;
+$sub-color: hsla(0, 0%, 0%, 0.35);
+
+h1 {
+   color: $main-color;
+   font-size: 3.9em;
+   font-family: 'Oswald', monospace;
+   text-shadow: 0 -2px 4px $main-color;
+  }
+.subtitle {
+  color: $sub-color;
+  a {
+    text-decoration: none;
+    color: $main-color;
+  }
+}

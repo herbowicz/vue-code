@@ -1,6 +1,5 @@
 <template>
   <div class="coders">
-
     <div v-for="row in Math.floor(users.length/col)">
       <div class="tile is-ancestor">
         <div class="tile is-parent" v-for="(user, key) of users.slice(col*(row-1), col*row)">
@@ -15,7 +14,6 @@
     </div>
 
     <Coder v-show="selectedUser" v-bind:user="selectedUser"  v-bind:showModal="true"/>
-
   </div>
 </template>
 
@@ -65,26 +63,6 @@ export default {
 }
 </script>
 
-<style scoped>
-  img {
-    border: 2px solid #008000;
-    padding: 5px;
-    border-radius: 50%;
-  }
-  .box {
-    box-shadow: 0 2px 4px 0 hsla(0, 0%, 0%, 0.2);
-    background-color: hsla(0, 0%, 0%, 0.03);
-    cursor: pointer;
-  }
-  .subtitle {
-    font-weight: bold;
-    color: #008000;
-  }
-  .box:hover {
-    color: white;
-    background-color: #66d666;
-  }
-  .box:hover img {
-    border: 2px solid white;
-  }
+<style lang="scss" scoped>
+   @import './coders.scss'
 </style>
