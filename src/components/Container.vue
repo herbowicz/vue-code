@@ -7,15 +7,12 @@
           code.wroclaw.pl
         </h1>
         <p class="subtitle">
-          Built with <strong>Vue.js</strong> & <strong>Bulma</strong>!
+          Built with <strong>Vue.js</strong> & <strong>Bulma</strong>
         </p>
       </div>
     </section>
 
     <Coders />
-
-    <progress class="progress" value="5" max="100">15%</progress>
-
   </div>
 </template>
 
@@ -30,3 +27,10 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+  h1 {
+     color: #008000;
+     font-size: 2.5em;
+  }
+</style>

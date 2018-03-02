@@ -1,9 +1,9 @@
 <template>
   <div class="coders">
 
-    <div v-for="i in users.length/6">
+    <div v-for="i in Math.floor(users.length/cols)">
       <div class="tile is-ancestor">
-        <div class="tile is-parent" v-for="(user, key) of users.slice(6*(i-1), 6*i)">
+        <div class="tile is-parent" v-for="(user, key) of users.slice(cols*(i-1), cols*i)">
           <article class="tile is-child box" :href="user.html_url">
             <p class="title"><img @mouseover="showDetails(key)" @mouseout="hideDetails()" :src="user.avatar_url" /></p>
             <p class="subtitle">{{user.login}}</p>
@@ -28,6 +28,7 @@ export default {
   },
   data () {
     return {
+      cols: Math.floor(window.screen.width / 225),
       users: [],
       selectedUser: null
     }
@@ -42,7 +43,7 @@ export default {
   },
   async created () {
     try {
-      const response = await axios.get(`https://api.github.com/search/users?q=location:Wroclaw+location:Wrocław?&per_page=12`)
+      const response = await axios.get(`https://api.github.com/search/users?q=location:Wroclaw+location:Wrocław?&per_page=25`)
       this.users = response.data.items
     } catch (e) {
       console.log(e)
@@ -64,21 +65,12 @@ export default {
 </script>
 
 <style scoped>
-h1, h2 {
-  font-weight: normal;
+img {
+  border: 2px solid #008000;
+  padding: 5px;
+  border-radius: 50%;
 }
-
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  display: inline-block;
-  margin: 0;
-}
-
-a {
-  color: #35495E;
+p {
+  color: #008000;
 }
 </style>
