@@ -5,14 +5,16 @@
       <div class="tile is-ancestor">
         <div class="tile is-parent" v-for="(user, key) of users.slice(col*(row-1), col*row)">
           <article class="tile is-child box" :href="user.html_url">
-            <p class="title"><img @click="showDetails(key+col*(row-1))" :src="user.avatar_url" /></p>
+            <p class="title" @click="showDetails(key+col*(row-1))">
+              <img :src="user.avatar_url" />
+            </p>
             <p class="subtitle">{{user.login}}</p>
           </article>
         </div>
       </div>
     </div>
 
-    <Coder v-show="selectedUser" v-bind:user="selectedUser" />
+    <Coder v-show="selectedUser" v-bind:user="selectedUser"  v-bind:showModal="true"/>
 
   </div>
 </template>
@@ -36,15 +38,13 @@ export default {
   },
   methods: {
     showDetails (id) {
+      console.log(this.users[id].login)
       this.selectedUser = this.users[id].login
-    },
-    hideDetails () {
-      this.selectedUser = null
     }
   },
   async created () {
     try {
-      const response = await axios.get(`https://api.github.com/search/users?q=location:Wroclaw+location:Wrocław?&per_page=25`)
+      const response = await axios.get(`https://api.github.com/search/users?q=location:Wroclaw+location:Wrocław?&per_page=21`)
       this.users = response.data.items
     } catch (e) {
       console.log(e)
@@ -70,6 +70,7 @@ img {
   border: 2px solid #008000;
   padding: 5px;
   border-radius: 50%;
+  cursor: pointer;
 }
 p {
   color: #008000;

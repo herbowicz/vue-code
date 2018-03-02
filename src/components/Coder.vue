@@ -1,11 +1,11 @@
 <template>
 
-    <div class="modal is-active" v-show="isVisible" >
+    <div class="modal" :class="showModal ? 'is-active' : ''">
       <div class="modal-background"></div>
       <div class="modal-card">
         <header class="modal-card-head">
           <p class="modal-card-title">{{ user }}</p>
-          <button class="delete" aria-label="close" @click="isVisible = false"></button>
+          <button class="delete" aria-label="close" @click="showModal = false"></button>
         </header>
         <section class="modal-card-body">
           <a :href="val.login" target="_blank">
@@ -28,7 +28,7 @@
         </section>
         <footer class="modal-card-foot">
           <button class="button is-success">Save changes</button>
-          <button class="button" @click="isVisible = false">Cancel</button>
+          <button class="button" @click="showModal = false">Cancel</button>
         </footer>
       </div>
 
@@ -39,14 +39,19 @@
 
 <script>
 import axios from 'axios'
-
+console.log(this.isVisible)
 export default {
-  props: ['user'],
+  props: ['user', 'showModal'],
   name: 'Coder',
   data () {
     return {
-      val: '',
-      isVisible: true
+      val: ''
+    }
+  },
+  methods: {
+    hideModal () {
+      console.log(this.isVisible)
+      this.showModal = false
     }
   },
   async updated () {
