@@ -16,15 +16,16 @@ export default {
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css?family=VT323');
 body {
   margin: 0;
 }
 
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: 'VT323', monospace;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
+  color: #008000;
 }
 
 main {

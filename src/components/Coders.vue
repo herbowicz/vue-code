@@ -44,7 +44,7 @@ export default {
   },
   async created () {
     try {
-      const response = await axios.get(`https://api.github.com/search/users?q=location:Wroclaw+location:Wrocław?&per_page=21`)
+      const response = await axios.get(`https://api.github.com/search/users?q=location:Wroclaw+location:Wrocław?&per_page=49`)
       this.users = response.data.items
     } catch (e) {
       console.log(e)
@@ -66,21 +66,21 @@ export default {
 </script>
 
 <style scoped>
-img {
-  border: 2px solid #008000;
-  padding: 5px;
-  border-radius: 50%;
-  cursor: pointer;
-}
-p {
-  color: #008000;
-}
+  img {
+    border: 2px solid #008000;
+    padding: 5px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  p {
+    color: #008000;
+  }
 
-.box {
-  box-shadow: 0 2px 4px 0 hsla(0, 0%, 0%, 0.2);
-  background-color: hsla(0, 0%, 0%, 0.03);
-}
-.subtitle {
-  font-weight: bold;
-}
+  .box {
+    box-shadow: 0 2px 4px 0 hsla(0, 0%, 0%, 0.2);
+    background-color: hsla(0, 0%, 0%, 0.03);
+  }
+  .subtitle {
+    font-weight: bold;
+  }
 </style>
