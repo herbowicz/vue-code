@@ -25,9 +25,14 @@
               View Github repositories
             </a>
           </button>
+          <button class="button is-success">
+            <a :href="val.url" target="_blank">
+              Data source
+            </a>
+          </button>
           <button class="button is-success" v-show="val.blog">
             <a :href="val.blog" target="_blank">
-              Visit personal website
+              Visit profile URL
             </a>
           </button>
           <button class="button" @click="showModal = false">Cancel</button>
