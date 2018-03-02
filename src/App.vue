@@ -38,6 +38,7 @@ header img {
 
 header {
   margin: 0;
+  border-top: 2px solid #008000;
   height: 50px;
   padding: 0 20px;
   background-color: #dedecf;

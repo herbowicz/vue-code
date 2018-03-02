@@ -5,7 +5,7 @@
       <div class="tile is-ancestor">
         <div class="tile is-parent" v-for="(user, key) of users.slice(col*(row-1), col*row)">
           <article class="tile is-child box" :href="user.html_url">
-            <p class="title"><img @mouseover="showDetails(key+col*(row-1))" @mouseout="hideDetails()" :src="user.avatar_url" /></p>
+            <p class="title"><img @click="showDetails(key+col*(row-1))" :src="user.avatar_url" /></p>
             <p class="subtitle">{{user.login}}</p>
           </article>
         </div>
@@ -13,6 +13,7 @@
     </div>
 
     <Coder v-show="selectedUser" v-bind:user="selectedUser" />
+
   </div>
 </template>
 
