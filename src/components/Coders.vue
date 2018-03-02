@@ -1,17 +1,23 @@
 <template>
   <div class="coders">
-    <ul v-if="users && users.length">
-      <li v-for="(user, key) of users">
-        <a :href="user.html_url">
-          <img @mouseover="showDetails(key)" @mouseout="hideDetails()" :src="user.avatar_url" />
-        </a>
-      </li>
-    </ul>
-    <Coder v-show="selectedUser" v-bind:user="selectedUser" /> 
+
+    <div v-for="i in users.length/6">
+      <div class="tile is-ancestor">
+        <div class="tile is-parent" v-for="(user, key) of users.slice(6*(i-1), 6*i)">
+          <article class="tile is-child box" :href="user.html_url">
+            <p class="title"><img @mouseover="showDetails(key)" @mouseout="hideDetails()" :src="user.avatar_url" /></p>
+            <p class="subtitle">{{user.login}}</p>
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <Coder v-show="selectedUser" v-bind:user="selectedUser" />
   </div>
 </template>
 
 <script>
+import 'bulma/css/bulma.css'
 import axios from 'axios'
 import Coder from './Coder'
 
@@ -29,7 +35,6 @@ export default {
   methods: {
     showDetails (id) {
       this.selectedUser = this.users[id].login
-      console.log(1)
     },
     hideDetails () {
       this.selectedUser = null
@@ -37,7 +42,7 @@ export default {
   },
   async created () {
     try {
-      const response = await axios.get(`https://api.github.com/search/users?q=location:Wroclaw+location:Wrocław?&per_page=14`)
+      const response = await axios.get(`https://api.github.com/search/users?q=location:Wroclaw+location:Wrocław?&per_page=12`)
       this.users = response.data.items
     } catch (e) {
       console.log(e)
@@ -75,10 +80,5 @@ li {
 
 a {
   color: #35495E;
-}
-
-img {
-  width: 100px;
-  height: 100px;
 }
 </style>
