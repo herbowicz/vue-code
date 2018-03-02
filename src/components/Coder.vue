@@ -48,12 +48,6 @@ export default {
       val: ''
     }
   },
-  methods: {
-    hideModal () {
-      console.log(this.isVisible)
-      this.showModal = false
-    }
-  },
   async updated () {
     try {
       const response = await axios.get(`https://api.github.com/users/${this.user}`)
