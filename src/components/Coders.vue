@@ -4,8 +4,8 @@
     <div v-for="row in Math.floor(users.length/col)">
       <div class="tile is-ancestor">
         <div class="tile is-parent" v-for="(user, key) of users.slice(col*(row-1), col*row)">
-          <article class="tile is-child box" :href="user.html_url">
-            <p class="title" @click="showDetails(key+col*(row-1))">
+          <article class="tile is-child box" @click="showDetails(key+col*(row-1))">
+            <p class="title">
               <img :src="user.avatar_url" />
             </p>
             <p class="subtitle">{{user.login}}</p>
@@ -70,23 +70,19 @@ export default {
     border: 2px solid #008000;
     padding: 5px;
     border-radius: 50%;
-    cursor: pointer;
   }
-  p {
-    color: #008000;
-  }
-
   .box {
     box-shadow: 0 2px 4px 0 hsla(0, 0%, 0%, 0.2);
     background-color: hsla(0, 0%, 0%, 0.03);
+    cursor: pointer;
   }
   .subtitle {
     font-weight: bold;
+    color: #008000;
   }
-
   .box:hover {
     color: white;
-    background-color: #88f888;
+    background-color: #66d666;
   }
   .box:hover img {
     border: 2px solid white;
