@@ -83,4 +83,12 @@ export default {
   .subtitle {
     font-weight: bold;
   }
+
+  .box:hover {
+    color: white;
+    background-color: #88f888;
+  }
+  .box:hover img {
+    border: 2px solid white;
+  }
 </style>
