@@ -75,4 +75,12 @@ img {
 p {
   color: #008000;
 }
+
+.box {
+  box-shadow: 0 2px 4px 0 hsla(0, 0%, 0%, 0.2);
+  background-color: hsla(0, 0%, 0%, 0.03);
+}
+.subtitle {
+  font-weight: bold;
+}
 </style>

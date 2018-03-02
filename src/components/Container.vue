@@ -7,7 +7,7 @@
           code.wroclaw.pl
         </h1>
         <p class="subtitle">
-          Built with <strong>Vue.js</strong> & <strong>Bulma</strong>
+          Built with <a href="https://vuejs.org/">Vue.js</a> & <a href="https://bulma.io/">Bulma</a>
         </p>
       </div>
     </section>
@@ -31,6 +31,13 @@ export default {
 <style scoped>
   h1 {
      color: #008000;
-     font-size: 2.5em;
+     font-size: 3em;
+  }
+  .subtitle {
+    color: hsla(0, 0%, 0%, 0.35);
+  }
+  .subtitle a {
+    text-decoration: none;
+    color: hsla(0, 0%, 0%, 0.45);
   }
 </style>

@@ -8,26 +8,28 @@
           <button class="delete" aria-label="close" @click="showModal = false"></button>
         </header>
         <section class="modal-card-body">
-          <a :href="val.login" target="_blank">
-            <h2>{{ val.name }}</h2>
-          </a>
-          <ul>
-            <li>ID: {{val.id }}</li>
-            <li>{{ val.bio && val.bio.substring(0, 80) }}</li>
-            <li>Repos: <strong>{{ val.public_repos }}</strong></li>
-            <li>Followers: {{ val.followers }}</li>
-            <li>Following: {{ val.following }}</li>
-            <li>Since: {{ val.created_at && val.created_at.substring(0, 10) }}</li>
-            <li>{{ val.hireable && "Available for hire" }}</li>
-            <li>
-              <a :href="val.blog" target="_blank">
-                {{ val.blog && val.blog.substr(val.blog.indexOf('://') + 3) }}
-              </a>
-            </li>
-          </ul>
+          <img :src="val.avatar_url" />
+          <p>{{ val.name }}</p>
+          <p>ID: <strong>{{val.id }}</strong></p>
+          <p>{{ val.bio }}</p>
+          <p>Repos: <strong>{{ val.public_repos }}</strong></p>
+          <p>Followers: <strong>{{ val.followers }}</strong></p>
+          <p>Following: <strong>{{ val.following }}</strong></p>
+          <p>Since: {{ val.created_at && val.created_at.substring(0, 10) }}</p>
+          <p>{{ val.hireable && "Available for hire" }}</p>
+          <p>{{ val.blog }}</p>
         </section>
         <footer class="modal-card-foot">
-          <button class="button is-success">Save changes</button>
+          <button class="button is-success">
+            <a :href="'https://github.com/' + val.login" target="_blank">
+              View Github repositories
+            </a>
+          </button>
+          <button class="button is-success" v-show="val.blog">
+            <a :href="val.blog" target="_blank">
+              Visit personal website
+            </a>
+          </button>
           <button class="button" @click="showModal = false">Cancel</button>
         </footer>
       </div>
@@ -60,13 +62,14 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 ul {
   list-style-type: none;
 }
-.moreInfo {
-  position: absolute;
-  top: 0;
-  z-indes: 5;
+a, a:hover {
+  color: white;
+}
+img {
+  height: 300px;
 }
 </style>
