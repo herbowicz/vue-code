@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="moreInfo">
     <a :href="val.login" target="_blank">
       <h2>{{ user }}</h2>
     </a>
@@ -48,5 +48,9 @@ export default {
 ul {
   list-style-type: none;
 }
+.moreInfo {
+  position: absolute;
+  top: 0;
+  z-indes: 5;
+}
 </style>
-

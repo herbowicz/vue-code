@@ -1,11 +1,11 @@
 <template>
   <div class="coders">
 
-    <div v-for="i in Math.floor(users.length/cols)">
+    <div v-for="row in Math.floor(users.length/col)">
       <div class="tile is-ancestor">
-        <div class="tile is-parent" v-for="(user, key) of users.slice(cols*(i-1), cols*i)">
+        <div class="tile is-parent" v-for="(user, key) of users.slice(col*(row-1), col*row)">
           <article class="tile is-child box" :href="user.html_url">
-            <p class="title"><img @mouseover="showDetails(key)" @mouseout="hideDetails()" :src="user.avatar_url" /></p>
+            <p class="title"><img @mouseover="showDetails(key+col*(row-1))" @mouseout="hideDetails()" :src="user.avatar_url" /></p>
             <p class="subtitle">{{user.login}}</p>
           </article>
         </div>
@@ -28,7 +28,7 @@ export default {
   },
   data () {
     return {
-      cols: Math.floor(window.screen.width / 225),
+      col: Math.floor(window.screen.width / 225),
       users: [],
       selectedUser: null
     }
